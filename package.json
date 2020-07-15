@@ -1,0 +1,32 @@
+{
+  "name": "chatcore",
+  "version": "1.0.0",
+  "description": "Realtime chat app with rooms",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server",
+    "dev":"nodemon server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chen2905/chatcore.git"
+  },
+  "keywords": [
+    "Chen",
+    "Gao"
+  ],
+  "author": "CG",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chen2905/chatcore/issues"
+  },
+  "homepage": "https://github.com/chen2905/chatcore#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "moment": "^2.27.0",
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
