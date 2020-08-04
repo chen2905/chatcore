@@ -13,13 +13,11 @@ const socket =io()
 
 socket.emit('joinRoom',{username,room})
 
-//get room and users
-socket.on('roomUsers', ({username,room})=>{
-    outputRoomName(room)
-    outputUsers(users)
-
-})
-
+// Get room and users
+socket.on('roomUsers', ({ room, users }) => {
+    outputRoomName(room);
+    outputUsers(users);
+  });
 //message from server
 socket.on('message',message => {
     console.log(message)
@@ -58,8 +56,9 @@ function outputRoomName(room){
     roomName.innerText = room
 }
 //ouptput user list of the room to the DOM
-function outputUser(users){
-    userList.innerHTML =`
-    ${users.map(user => `<li>${user.username }</li>`).join('')}
-    `
+function outputUsers(users){
+    console.log(`users:j ${users[0].username}`)
+    userList.innerHTML = `
+    ${users.map(user => `<li>${user.username}</li>`).join('')}
+  `;
 }
