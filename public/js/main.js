@@ -6,14 +6,16 @@ const userList = document.getElementById('users')
 const {username,room}=Qs.parse(location.search,{
     ignoreQueryPrefix:true
 })
-console.log(username,room)
+console.log(`getting form Qs: username: ${username},room:${room}`)
 const socket =io()
 
 //join chatroom
-
+// client socket emit joinRoom event to server, server 
+//will capture it and do someting about it
 socket.emit('joinRoom',{username,room})
 
-// Get room and users
+// server emit roomusers message, client will
+//display room and users once received from server
 socket.on('roomUsers', ({ room, users }) => {
     outputRoomName(room);
     outputUsers(users);
@@ -49,7 +51,7 @@ function outputMessage(message){
     <p class="text">
     ${message.text}
     </p>`
-    chatMessages.appendChild(div)
+    chatMessages.appendChild(div)//append the message to <div class="chat-messages"></div>
 } 
 //output room name to DOM
 function outputRoomName(room){
